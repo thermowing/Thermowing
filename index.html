@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -6,231 +7,296 @@
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
-      integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtV1RW3tvkXWZh58N9jp"
       crossorigin="anonymous"
     />
-    <!--Import Google Icon Font-->
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <!-- Compiled and minified CSS -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
 
     <title>Smart Thermowing</title>
+    <link rel="icon" type="image/png" href="logo.png" />
+
     <style>
       /* ===============================
-   Global Styles
+   Loader Styles
 =================================*/
-header {
-  position: relative;
-  min-height: 750px;
-  width: 100%;
-  overflow: hidden;
-}
+      #loader-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: #1e3c72;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        z-index: 9999;
+        transition: opacity 0.8s ease, visibility 0.8s ease;
+      }
 
-.bg-video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  transform: translate(-50%, -50%);
-  object-fit: cover;
-  z-index: -1;
-}
+      #loader-wrapper.hidden {
+        opacity: 0;
+        visibility: hidden;
+      }
 
-.section {
-  padding-top: 4vw;
-  padding-bottom: 4vw;
-}
+      .logo-circle {
+        position: relative;
+        width: 220px;
+        height: 220px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-h2 {
-  margin-bottom: 40px;
-}
+      .circle-border {
+        position: absolute;
+        width: 220px;
+        height: 220px;
+        border: 10px solid rgba(255, 255, 255, 0.15);
+        border-top: 10px solid #ffffff;
+        border-radius: 50%;
+        animation: spin 1.5s linear infinite;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+      }
 
-.tabs .indicator {
-  background-color: #009245;
-}
+      .logo-inner {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        overflow: hidden;
+        background: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+      }
 
-.tabs .tab a:focus,
-.tabs a:focus.active {
-  background: transparent;
-}
+      .logo-inner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
 
-.material-icons form {
-  color: #009245;
-}
+      .logo-text {
+        font-size: 22px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        margin-top: 20px;
+        color: #fff;
+      }
 
-.btn {
-  background-color: #009245;
-}
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
 
-/* ===============================
-   Brand Logo (Fixed Text)
+      /* ===============================
+   Global Site Styles
 =================================*/
-.brand-logo {
-  white-space: nowrap;  /* Prevents line break */
-  font-size: 24px;
-  font-weight: 600;
-}
+      header {
+        position: relative;
+        min-height: 750px;
+        width: 100%;
+        overflow: hidden;
+      }
 
-/* ===============================
+      .bg-video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        transform: translate(-50%, -50%);
+        object-fit: cover;
+        z-index: -1;
+      }
+
+      .section {
+        padding-top: 4vw;
+        padding-bottom: 4vw;
+      }
+
+      h2 {
+        margin-bottom: 40px;
+      }
+
+      .tabs .indicator {
+        background-color: #009245;
+      }
+
+      .tabs .tab a:focus,
+      .tabs a:focus.active {
+        background: transparent;
+      }
+
+      .btn {
+        background-color: #009245;
+      }
+
+      .brand-logo {
+        white-space: nowrap;
+        font-size: 24px;
+        font-weight: 600;
+      }
+
+      /* ===============================
    Mobile (Phones)
 =================================*/
-@media screen and (max-width: 600px) {
-  header {
-    min-height: 300px;
-  }
+      @media screen and (max-width: 600px) {
+        header {
+          min-height: 250px; /* smaller header */
+        }
 
-  .bg-video {
-    min-height: 300px;
-    height: 100%;
-  }
+        .bg-video {
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 250px; /* fixed cropped height */
+          object-fit: cover;
+          transform: none;
+        }
 
-  .brand-logo {
-    font-size: 18px;
-    text-align: center;   /* Centered on mobile */
-    width: 100%;
-  }
+        .brand-logo {
+          font-size: 18px;
+          text-align: center;
+          width: 100%;
+        }
 
-  h2 {
-    font-size: 22px;
-    text-align: center;
-  }
+        h2 {
+          font-size: 22px;
+          text-align: center;
+        }
 
-  h4 {
-    font-size: 18px;
-    text-align: center;
-  }
+        h4 {
+          font-size: 18px;
+          text-align: center;
+        }
 
-  .card-content p,
-  .section p {
-    font-size: 14px;
-    text-align: justify;
-  }
+        .card-content p,
+        .section p {
+          font-size: 14px;
+          text-align: justify;
+        }
 
-  .card img {
-    height: 180px !important;
-  }
+        .card img {
+          height: 180px !important;
+        }
 
-  .container {
-    padding: 0 10px;
-  }
+        .container {
+          padding: 0 10px;
+        }
 
-  footer h5 {
-    font-size: 16px;
-  }
+        footer h5 {
+          font-size: 16px;
+        }
 
-  footer p,
-  footer ul {
-    font-size: 13px;
-  }
-}
+        footer p,
+        footer ul {
+          font-size: 13px;
+        }
+      }
 
-/* ===============================
+      /* ===============================
    Tablet (Portrait & Landscape)
 =================================*/
-@media screen and (min-width: 601px) and (max-width: 992px) {
-  header {
-    min-height: 500px;
-  }
+      @media screen and (min-width: 601px) and (max-width: 992px) {
+        header {
+          min-height: 450px;
+        }
 
-  .bg-video {
-    min-height: 500px;
-  }
+        .bg-video {
+          min-height: 450px;
+          transform: translate(-50%, -50%);
+        }
 
-  .brand-logo {
-    font-size: 22px;
-    text-align: left;
-  }
+        .brand-logo {
+          font-size: 22px;
+          text-align: left;
+        }
 
-  h2 {
-    font-size: 26px;
-  }
+        h2 {
+          font-size: 26px;
+        }
 
-  h4 {
-    font-size: 20px;
-  }
+        h4 {
+          font-size: 20px;
+        }
 
-  .card img {
-    height: 200px !important;
-  }
+        .card img {
+          height: 200px !important;
+        }
 
-  .card-content p {
-    font-size: 15px;
-  }
-}
+        .card-content p {
+          font-size: 15px;
+        }
+      }
 
-/* ===============================
+      /* ===============================
    Desktop (Large Screens)
 =================================*/
-@media screen and (min-width: 1200px) {
-  header {
-    min-height: 850px;
-  }
+      @media screen and (min-width: 1200px) {
+        header {
+          min-height: 850px;
+        }
 
-  .bg-video {
-    min-height: 850px;
-  }
+        .bg-video {
+          min-height: 850px;
+        }
 
-  .brand-logo {
-    font-size: 30px;
-    text-align: left;
-  }
+        .brand-logo {
+          font-size: 30px;
+          text-align: left;
+        }
 
-  h2 {
-    font-size: 34px;
-  }
+        h2 {
+          font-size: 34px;
+        }
 
-  h4 {
-    font-size: 26px;
-  }
+        h4 {
+          font-size: 26px;
+        }
 
-  .card-content p,
-  .section p {
-    font-size: 18px;
-    line-height: 1.8;
-  }
+        .card-content p,
+        .section p {
+          font-size: 18px;
+          line-height: 1.8;
+        }
 
-  .container {
-    max-width: 1300px;
-  }
+        .container {
+          max-width: 1300px;
+        }
 
-  footer h5 {
-    font-size: 20px;
-  }
-}
-
+        footer h5 {
+          font-size: 20px;
+        }
+      }
     </style>
   </head>
-
-  <script>
-    async function fetchSensorData() {
-      try {
-        // ESP8266 IP / mDNS address
-        const response = await fetch("http://192.168.225.149/api/sensors");
-        const data = await response.json();
-
-        document.getElementById("tempValue").textContent = data.temperature;
-        document.getElementById("vibrationValue").textContent = data.vibration;
-        document.getElementById("soundValue").textContent = data.sound;
-      } catch (error) {
-        console.error("Error fetching sensor data:", error);
-      }
-    }
-
-    // Fetch every 2 seconds
-    setInterval(fetchSensorData, 2000);
-    fetchSensorData();
-  </script>
-
   <body>
+    <!-- Loader Screen -->
+    <div id="loader-wrapper">
+      <div class="logo-circle">
+        <div class="circle-border"></div>
+        <div class="logo-inner">
+          <img src="logo.png" alt="Smart Thermowing Logo" />
+        </div>
+      </div>
+      <div class="logo-text">Smart Thermowing</div>
+    </div>
+
+    <!-- Main Site Content -->
     <header>
       <video autoplay muted loop playsinline class="bg-video">
         <source src="mainbg.mp4" type="video/mp4" />
@@ -256,6 +322,8 @@ h2 {
         <li><a href="#login">login</a></li>
       </ul>
     </header>
+
+    <!-- (Rest of your site content remains unchanged) -->
     <div class="container scrollspy" id="service">
       <h2 class="green-text text-darken-4">Services</h2>
       <div class="row">
@@ -283,9 +351,7 @@ h2 {
               </p>
             </div>
             <div class="card-action">
-              <a
-                href="jaishnu77.html"
-                class="green-text text-darken-4"
+              <a href="jaishnu77.html" class="green-text text-darken-4"
                 >More details</a
               >
             </div>
@@ -312,7 +378,9 @@ h2 {
               </p>
             </div>
             <div class="card-action">
-              <a href="drone_feature.html" class="green-text text-darken-4">More details</a>
+              <a href="drone_feature.html" class="green-text text-darken-4"
+                >More details</a
+              >
             </div>
           </div>
         </div>
@@ -550,12 +618,14 @@ h2 {
         </div>
       </div>
       <div class="footer-copyright grey darken-4">
-        <div class="container center-align">&copy; 2025 Smart Thermowing Explorer </div>
+        <div class="container center-align">
+          &copy; 2025 Smart Thermowing Explorer
+        </div>
       </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
       $(document).ready(function () {
@@ -566,12 +636,14 @@ h2 {
         $(".datepicker").datepicker({});
         $(".scrollspy").scrollSpy();
       });
+
+      // Hide loader after page load
+      window.addEventListener("load", () => {
+        const loader = document.getElementById("loader-wrapper");
+        setTimeout(() => {
+          loader.classList.add("hidden");
+        }, 1000); // 1 second delay for smooth fade
+      });
     </script>
   </body>
 </html>
-
-
-
-
-
-
