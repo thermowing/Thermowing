@@ -19,9 +19,9 @@
     />
 
     <title>Smart Thermowing</title>
-  <link rel="icon" type="image/png" href="/logo.png" />
-  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-  <link rel="apple-touch-icon" href="/logo.png" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/logo.png" />
 
     <style>
       /* ===============================
@@ -101,10 +101,6 @@
           transform: rotate(360deg);
         }
       }
-
-      /* ===============================
-   Global Site Styles
-=================================*/
       header {
         position: relative;
         min-height: 750px;
@@ -143,12 +139,19 @@
         background: transparent;
       }
 
+      .material-icons form {
+        color: #009245;
+      }
+
       .btn {
         background-color: #009245;
       }
 
+      /* ===============================
+   Brand Logo (Fixed Text)
+=================================*/
       .brand-logo {
-        white-space: nowrap;
+        white-space: nowrap; /* Prevents line break */
         font-size: 24px;
         font-weight: 600;
       }
@@ -158,21 +161,17 @@
 =================================*/
       @media screen and (max-width: 600px) {
         header {
-          min-height: 250px; /* smaller header */
+          min-height: 300px;
         }
 
         .bg-video {
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 250px; /* fixed cropped height */
-          object-fit: cover;
-          transform: none;
+          min-height: 300px;
+          height: 100%;
         }
 
         .brand-logo {
           font-size: 18px;
-          text-align: center;
+          text-align: center; /* Centered on mobile */
           width: 100%;
         }
 
@@ -215,12 +214,11 @@
 =================================*/
       @media screen and (min-width: 601px) and (max-width: 992px) {
         header {
-          min-height: 450px;
+          min-height: 500px;
         }
 
         .bg-video {
-          min-height: 450px;
-          transform: translate(-50%, -50%);
+          min-height: 500px;
         }
 
         .brand-logo {
@@ -649,5 +647,3 @@
     </script>
   </body>
 </html>
-
-
