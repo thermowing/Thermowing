@@ -22,54 +22,191 @@
 
     <title>Smart Thermowing</title>
     <style>
-      header {
-        position: relative;
-        min-height: 750px;
-        width: 100%;
-        overflow: hidden;
-      }
+      /* ===============================
+   Global Styles
+=================================*/
+header {
+  position: relative;
+  min-height: 750px;
+  width: 100%;
+  overflow: hidden;
+}
 
-      .bg-video {
-        position: absolute;
-        top: 0;
-        left: 0;
-        min-width: 100%;
-        min-height: 100%;
-        object-fit: cover;
-        z-index: -1;
-      }
+.bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: -1;
+}
 
-      .section {
-        padding-top: 4vw;
-        padding-bottom: 4vw;
-      }
+.section {
+  padding-top: 4vw;
+  padding-bottom: 4vw;
+}
 
-      h2 {
-        margin-bottom: 40px; /* or adjust as needed */
-      }
+h2 {
+  margin-bottom: 40px;
+}
 
-      .tabs .indicator {
-        background-color: #009245;
-      }
+.tabs .indicator {
+  background-color: #009245;
+}
 
-      .tabs .tab a:focus,
-      .tabs a:focus.active {
-        background: transparent;
-      }
-      .material-icons form {
-        color: #009245;
-      }
+.tabs .tab a:focus,
+.tabs a:focus.active {
+  background: transparent;
+}
 
-      .btn {
-        background-color: #009245;
-      }
+.material-icons form {
+  color: #009245;
+}
 
-      /* Mobile-friendly adjustment */
-      @media screen and (max-width: 500px) {
-        header {
-          min-height: 300px;
-        }
-      }
+.btn {
+  background-color: #009245;
+}
+
+/* ===============================
+   Brand Logo (Fixed Text)
+=================================*/
+.brand-logo {
+  white-space: nowrap;  /* Prevents line break */
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* ===============================
+   Mobile (Phones)
+=================================*/
+@media screen and (max-width: 600px) {
+  header {
+    min-height: 300px;
+  }
+
+  .bg-video {
+    min-height: 300px;
+    height: 100%;
+  }
+
+  .brand-logo {
+    font-size: 18px;
+    text-align: center;   /* Centered on mobile */
+    width: 100%;
+  }
+
+  h2 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  h4 {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .card-content p,
+  .section p {
+    font-size: 14px;
+    text-align: justify;
+  }
+
+  .card img {
+    height: 180px !important;
+  }
+
+  .container {
+    padding: 0 10px;
+  }
+
+  footer h5 {
+    font-size: 16px;
+  }
+
+  footer p,
+  footer ul {
+    font-size: 13px;
+  }
+}
+
+/* ===============================
+   Tablet (Portrait & Landscape)
+=================================*/
+@media screen and (min-width: 601px) and (max-width: 992px) {
+  header {
+    min-height: 500px;
+  }
+
+  .bg-video {
+    min-height: 500px;
+  }
+
+  .brand-logo {
+    font-size: 22px;
+    text-align: left;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
+
+  h4 {
+    font-size: 20px;
+  }
+
+  .card img {
+    height: 200px !important;
+  }
+
+  .card-content p {
+    font-size: 15px;
+  }
+}
+
+/* ===============================
+   Desktop (Large Screens)
+=================================*/
+@media screen and (min-width: 1200px) {
+  header {
+    min-height: 850px;
+  }
+
+  .bg-video {
+    min-height: 850px;
+  }
+
+  .brand-logo {
+    font-size: 30px;
+    text-align: left;
+  }
+
+  h2 {
+    font-size: 34px;
+  }
+
+  h4 {
+    font-size: 26px;
+  }
+
+  .card-content p,
+  .section p {
+    font-size: 18px;
+    line-height: 1.8;
+  }
+
+  .container {
+    max-width: 1300px;
+  }
+
+  footer h5 {
+    font-size: 20px;
+  }
+}
+
     </style>
   </head>
 
@@ -432,6 +569,7 @@
     </script>
   </body>
 </html>
+
 
 
 
